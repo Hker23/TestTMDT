@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="NewTestCK.Main" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            height: 290px;
+        }
+        .auto-style2 {
+            width: 237px;
+        }
+        .auto-style3 {
+            width: 383px;
+        }
+    </style>
+</head>
+<body style="height: 294px; margin-top: 15px">
+    <form id="form1" runat="server">
+        <div>
+                <table class="auto-style1" border="1">
+                    <tr>
+                        <td class="auto-style2">
+                            <h3>Hãng Sản Xuất</h3>
+                            <asp:DataList ID="DataList1" runat="server">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" Text='<%# Eval("TenHang") %>' CommandArgument='<%# Eval("MaNSX") %>' OnClick="LinkButton1_Click"></asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:DataList>
+                        </td>               
+                        <td class="auto-style3" aria-orientation="vertical">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                &nbsp;
+                            </asp:ContentPlaceHolder></td>
+                        <td>
+                            <table>
+    <tr>
+        <td><label>Tổng số lượt truy cập</label></td>
+        <td><%=Application["count_visit"].ToString() %></td>
+        </tr>
+        <tr>
+            <td><label>Số người đang online:</label></td>
+            <td><%=Session["online"].ToString() %></td>
+        </tr>
+        <tr>
+    </table> 
+                        </td>
+                    </tr>                   
+                </table>
+            
+        </div>
+    </form>
+</body>
+</html>
